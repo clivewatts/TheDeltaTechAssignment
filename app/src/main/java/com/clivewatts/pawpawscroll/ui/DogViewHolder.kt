@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.clivewatts.pawpawscroll.databinding.DogListItemBinding
 
 class DogViewHolder(private val binding: DogListItemBinding, val callback: DogActionsInterface, private val context : Context ) :
@@ -17,7 +18,8 @@ class DogViewHolder(private val binding: DogListItemBinding, val callback: DogAc
         binding.apply {
             Glide.with(context)
                 .load(url)
-                .addListener(ImageLoadingListener(this.imagePendingAnimation))
+                .addListener(ImageLoadingListener(this.imagePendingAnimation, this.buttonContainer))
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(this.listItemImage);
             binding.listItemImage.setOnClickListener(View.OnClickListener {
                 url?.let { it1 -> callback.onImageTapped(it1) }

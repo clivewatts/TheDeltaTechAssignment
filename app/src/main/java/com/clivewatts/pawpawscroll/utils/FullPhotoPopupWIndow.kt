@@ -57,6 +57,7 @@ class FullPhotoPopupWindow(
     }
 
     init {
+        animationStyle = R.style.popup_window_animation
         if (Build.VERSION.SDK_INT >= 21) {
             elevation = 5.0f
         }

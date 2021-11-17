@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.clivewatts.pawpawscroll.R
 import com.clivewatts.pawpawscroll.databinding.DogListItemBinding
 import android.graphics.drawable.Drawable
+import android.widget.LinearLayout
 import androidx.annotation.Nullable
 import com.bumptech.glide.load.DataSource
 
@@ -44,7 +45,7 @@ class DogListItemAdapter(private var data: MutableList<String?>?, private val co
 
 }
 
-fun ImageLoadingListener(pendingImage: LottieAnimationView): RequestListener<Drawable?>? {
+fun ImageLoadingListener(pendingImage: LottieAnimationView, buttonContainer : LinearLayout): RequestListener<Drawable?>? {
     return object : RequestListener<Drawable?> {
         override fun onLoadFailed(
             e: GlideException?,
@@ -65,6 +66,7 @@ fun ImageLoadingListener(pendingImage: LottieAnimationView): RequestListener<Dra
             //hide the animation
             pendingImage.pauseAnimation()
             pendingImage.visibility = View.GONE
+            buttonContainer.visibility = View.VISIBLE
             return false //let Glide handle everything else
         }
     }

@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="8dp"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="8dp"
         android:layout_width="200dp"
-        android:layout_height="250dp"
-        >
+        android:layout_height="250dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,29 +40,34 @@
             </FrameLayout>
 
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/button_container"
                 android:background="@drawable/rounded_bg"
-                android:gravity="end"
+                android:paddingRight="4dp"
+                android:paddingLeft="4dp"
                 android:layout_alignEnd="@id/image_container"
                 android:layout_alignBottom="@id/image_container"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <ImageView
+                    android:layout_marginTop="16dp"
+
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/save_pupper"
                     android:src="@drawable/download_circular_button"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="4dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     app:tint="@color/white" />
 
                 <ImageView
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/share_pupper"
                     android:src="@drawable/share"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="4dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     app:tint="@color/white" />
             </LinearLayout>
 
